@@ -21,12 +21,12 @@ public class PostacChibi extends ObiektGry {
     private Bitmap[] mSkorkaDolDoGory;
 
     // Velocity of game character (pixel/millisecond)
-    public static final float PREDKOSC = 0.1f;
+    public static final float PREDKOSC = 0.2f;
 
     private int mPoruszajacyWektorX = 10;
     private int mPoruszajacyWektorY = 5;
 
-    private long mOstatniCzasRysowania =-1;
+    private long mOstatniCzasRysowania = -1;
 
     private GameSurface gameSurface;
 
