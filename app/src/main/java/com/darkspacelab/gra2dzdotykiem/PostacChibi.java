@@ -15,13 +15,15 @@ public class PostacChibi extends ObiektGry {
 
     private int uzytaKolumna;
 
+    private boolean eksploduje = false;
+    private int fazaEksplozji = 1;
     private Bitmap[] mSkorkaLewoDoPrawo;
     private Bitmap[] mSkorkaPrawoDoLewo;
     private Bitmap[] mSkorkaGoraDoDolu;
     private Bitmap[] mSkorkaDolDoGory;
 
     // Velocity of game character (pixel/millisecond)
-    public static final float PREDKOSC = 0.2f;
+    public float PREDKOSC;
 
     private int mPoruszajacyWektorX = 10;
     private int mPoruszajacyWektorY = 5;
@@ -30,10 +32,10 @@ public class PostacChibi extends ObiektGry {
 
     private GameSurface gameSurface;
 
-    public PostacChibi(GameSurface gameSurface, Bitmap image, int x, int y) {
-        super(image, 4, 3, x, y);
-
-        this.gameSurface= gameSurface;
+    public PostacChibi(GameSurface gameSurface, Bitmap image,Bitmap boom, int x, int y, float speed) {
+        super(image,boom, 4, 3, x, y);
+        this.PREDKOSC = speed;
+        this.gameSurface = gameSurface;
 
         this.mSkorkaGoraDoDolu = new Bitmap[mLiczbaKolumn]; // 3
         this.mSkorkaPrawoDoLewo = new Bitmap[mLiczbaKolumn]; // 3
@@ -134,7 +136,13 @@ public class PostacChibi extends ObiektGry {
     }
 
     public void rysuj(Canvas canvas)  {
-        Bitmap bitmap = this.getAktualnaSkorka();
+        Bitmap bitmap;
+        if (!eksploduje) bitmap = this.getAktualnaSkorka();
+        else {
+            bitmap = this.eksplozja(fazaEksplozji);
+            fazaEksplozji++;
+            if (fazaEksplozji > 26) eksploduje = false;
+        }
         canvas.drawBitmap(bitmap, mX, mY, null);
         // Last rysuj time.
         mOstatniCzasRysowania = System.nanoTime();

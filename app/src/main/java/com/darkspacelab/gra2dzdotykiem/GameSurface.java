@@ -30,8 +30,6 @@ public class GameSurface extends SurfaceView implements SurfaceHolder.Callback {
         this.chibi2.aktualizuj();
     }
 
-
-
     @Override
     public void draw(Canvas canvas)  {
         super.draw(canvas);
@@ -44,9 +42,9 @@ public class GameSurface extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         Bitmap chibiBitmap1 = BitmapFactory.decodeResource(this.getResources(), R.drawable.chibi1);
-        Bitmap chibiBitmap2 = BitmapFactory.decodeResource(this.getResources(), R.drawable.chibi1);
-        this.chibi1 = new PostacChibi(this,chibiBitmap1,100,50);
-        this.chibi2 = new PostacChibi(this,chibiBitmap1,400,600);
+        Bitmap chibiBoom = BitmapFactory.decodeResource(this.getResources(), R.drawable.boom);
+        this.chibi1 = new PostacChibi(this,chibiBitmap1,chibiBoom,100,50,0.1f);
+        this.chibi2 = new PostacChibi(this,chibiBitmap1,chibiBoom,400,600,0.2f);
         this.gameThread = new GameThread(this,holder);
         this.gameThread.setRunning(true);
         this.gameThread.start();
@@ -80,8 +78,8 @@ public class GameSurface extends SurfaceView implements SurfaceHolder.Callback {
             int x = (int) motionEvent.getX();
             int y = (int) motionEvent.getY();
 
-            int movingVectorX =x-  this.chibi1.getX();
-            int movingVectorY =y-  this.chibi1.getY();
+            int movingVectorX = x - this.chibi1.getX();
+            int movingVectorY = y - this.chibi1.getY();
 
             int movingVectorX2 =x-  this.chibi2.getX();
             int movingVectorY2 =y-  this.chibi2.getY();
