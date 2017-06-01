@@ -4,9 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Gra2DzDotykiem.iml" filepath="$PROJECT_DIR$/Gra2DzDotykiem.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/kasprzak_gra2dzdotykiem.iml" filepath="$PROJECT_DIR$/kasprzak_gra2dzdotykiem.iml" />
       <module fileurl="file://$PROJECT_DIR$/kasprzak_gra2dzdotykiem.iml" filepath="$PROJECT_DIR$/kasprzak_gra2dzdotykiem.iml" />
     </modules>
   </component>

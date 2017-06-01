@@ -1,12 +1,14 @@
 package com.darkspacelab.gra2dzdotykiem;
 
-
-
 import android.graphics.Bitmap;
 
 public abstract class ObiektGry {
 
     protected Bitmap mObraz;
+    protected Bitmap mBoom;
+
+    protected static final int mBoomWysokosc = 64;
+    protected static final int mBoomSzerokosc = 64;
 
     protected final int mLiczbaWierszy;
     protected final int mLiczbaKolumn;
@@ -20,11 +22,13 @@ public abstract class ObiektGry {
     protected int mX;
     protected int mY;
 
-    public ObiektGry(Bitmap obraz, int liczbaWierszy, int liczbaKolumn, int x, int y)  {
+    public ObiektGry(Bitmap obraz,Bitmap boom, int liczbaWierszy, int liczbaKolumn, int x, int y)  {
 
+        this.mBoom = boom;
         this.mObraz = obraz;
         this.mLiczbaWierszy = liczbaWierszy;
         this.mLiczbaKolumn = liczbaKolumn;
+
 
         this.mX = x;
         this.mY = y;
@@ -41,6 +45,26 @@ public abstract class ObiektGry {
         // createBitmap(bitmap, mX, mY, mSzerokosc, mWysokosc).
         Bitmap skorka = Bitmap.createBitmap(mObraz, kolumna * mSzerokosc, wiersz * mWysokosc, mSzerokosc, mWysokosc);
         return skorka;
+    }
+
+    protected Bitmap eksplozja(int fazaEksplozji) {
+        Bitmap skin = null;
+        if (fazaEksplozji <= 4) {
+            skin = Bitmap.createBitmap(mBoom, fazaEksplozji *mBoomSzerokosc, 0, mBoomSzerokosc, mBoomWysokosc);
+        }
+        else if(fazaEksplozji > 4 && fazaEksplozji <= 9) {
+            skin = Bitmap.createBitmap(mBoom, (fazaEksplozji-5) *mBoomSzerokosc, mBoomWysokosc, mBoomSzerokosc, mBoomWysokosc);
+        }
+        else if(fazaEksplozji > 9 && fazaEksplozji <= 14) {
+            skin = Bitmap.createBitmap(mBoom, (fazaEksplozji-10) *mBoomSzerokosc, 2*mBoomWysokosc, mBoomSzerokosc, mBoomWysokosc);
+        }
+        else if(fazaEksplozji > 14 && fazaEksplozji <= 19) {
+            skin = Bitmap.createBitmap(mBoom, (fazaEksplozji-15) *mBoomSzerokosc, 3*mBoomWysokosc, mBoomSzerokosc, mBoomWysokosc);
+        }
+        else if(fazaEksplozji > 19 && fazaEksplozji <= 24) {
+            skin = Bitmap.createBitmap(mBoom, (fazaEksplozji-20) *mBoomSzerokosc, 4*mBoomWysokosc, mBoomSzerokosc, mBoomWysokosc);
+        }
+        return skin;
     }
 
     public int getX()  {
