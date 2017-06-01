@@ -15,15 +15,16 @@ public class PostacChibi extends ObiektGry {
 
     private int uzytaKolumna;
 
-    private boolean eksploduje = true;
+    private boolean eksploduje = false;
     private int fazaEksplozji = 0;
+
     private Bitmap[] mSkorkaLewoDoPrawo;
     private Bitmap[] mSkorkaPrawoDoLewo;
     private Bitmap[] mSkorkaGoraDoDolu;
     private Bitmap[] mSkorkaDolDoGory;
 
     // Velocity of game character (pixel/millisecond)
-    public float PREDKOSC;
+    public float predkosc;
 
     private int mPoruszajacyWektorX = 10;
     private int mPoruszajacyWektorY = 5;
@@ -32,9 +33,9 @@ public class PostacChibi extends ObiektGry {
 
     private GameSurface gameSurface;
 
-    public PostacChibi(GameSurface gameSurface, Bitmap image,Bitmap boom, int x, int y, float speed) {
+    public PostacChibi(GameSurface gameSurface, Bitmap image, Bitmap boom, int x, int y, float speed) {
         super(image,boom, 4, 3, x, y);
-        this.PREDKOSC = speed;
+        this.predkosc = speed;
         this.gameSurface = gameSurface;
 
         this.mSkorkaGoraDoDolu = new Bitmap[mLiczbaKolumn]; // 3
@@ -89,7 +90,7 @@ public class PostacChibi extends ObiektGry {
         // Konwersja nanosekund do milisekund
         int roznicaCzasu = (int) ((teraz - mOstatniCzasRysowania) / 1000000 );
 
-        float droga = PREDKOSC * roznicaCzasu;
+        float droga = predkosc * roznicaCzasu;
 
         double dlugoscWektoraRuchu = Math.sqrt(mPoruszajacyWektorX * mPoruszajacyWektorX + mPoruszajacyWektorY * mPoruszajacyWektorY);
 
@@ -154,5 +155,9 @@ public class PostacChibi extends ObiektGry {
     public void setmPoruszajacyWektor(int poruszajacyWektorX, int poruszajacyWektorY)  {
         mPoruszajacyWektorX = poruszajacyWektorX;
         mPoruszajacyWektorY = poruszajacyWektorY;
+    }
+
+    public void setEksploduje() {
+        this.eksploduje = true;
     }
 }

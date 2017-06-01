@@ -86,7 +86,17 @@ public class GameSurface extends SurfaceView implements SurfaceHolder.Callback {
 
             chibi1.setmPoruszajacyWektor(movingVectorX,movingVectorY);
             chibi2.setmPoruszajacyWektor(movingVectorX2,movingVectorY2);
-            System.out.println("x: "+x+", y: "+y);
+
+            if(x >= chibi1.getX() &&  x < chibi1.getX() + chibi1.mSzerokosc
+                    && y >= chibi1.getY() &&  y < chibi1.getY() + chibi1.mWysokosc) {
+
+                chibi1.setEksploduje();
+            }
+            else if(x >= chibi2.getX() &&  x < chibi2.getX() + chibi2.mSzerokosc
+                    && y >= chibi2.getY() &&  y < chibi2.getY() + chibi2.mWysokosc) {
+                chibi2.setEksploduje();
+            }
+
             return true;
 
         }

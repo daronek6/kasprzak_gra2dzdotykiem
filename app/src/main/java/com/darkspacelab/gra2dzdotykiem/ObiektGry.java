@@ -7,17 +7,20 @@ public abstract class ObiektGry {
     protected Bitmap mObraz;
     protected Bitmap mBoom;
 
-    protected static final int mBoomWysokosc = 64;
-    protected static final int mBoomSzerokosc = 64;
-
     protected final int mLiczbaWierszy;
     protected final int mLiczbaKolumn;
 
     protected final int SZEROKOSC_GRAFIKI;
     protected final int WYSOKOSC_GRAFIKI;
 
+    protected final int SZEROKOSC_BOOM;
+    protected final int WYSOKOSC_BOOM;
+
     protected final int mSzerokosc;
     protected final int mWysokosc;
+
+    protected final int mBoomSzerokosc;
+    protected final int mBoomWysokosc;
 
     protected int mX;
     protected int mY;
@@ -29,15 +32,18 @@ public abstract class ObiektGry {
         this.mLiczbaWierszy = liczbaWierszy;
         this.mLiczbaKolumn = liczbaKolumn;
 
-
         this.mX = x;
         this.mY = y;
 
         this.SZEROKOSC_GRAFIKI = obraz.getWidth();
         this.WYSOKOSC_GRAFIKI = obraz.getHeight();
+        this.SZEROKOSC_BOOM = boom.getWidth();
+        this.WYSOKOSC_BOOM = boom.getHeight();
 
         this.mSzerokosc = this.SZEROKOSC_GRAFIKI / liczbaKolumn;
         this.mWysokosc = this.WYSOKOSC_GRAFIKI / liczbaWierszy;
+        this.mBoomSzerokosc = this.SZEROKOSC_BOOM / 5;
+        this.mBoomWysokosc = this.WYSOKOSC_BOOM / 5;
     }
 
 
