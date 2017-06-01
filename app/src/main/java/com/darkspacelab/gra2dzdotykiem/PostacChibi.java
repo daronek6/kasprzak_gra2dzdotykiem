@@ -15,8 +15,8 @@ public class PostacChibi extends ObiektGry {
 
     private int uzytaKolumna;
 
-    private boolean eksploduje = false;
-    private int fazaEksplozji = 1;
+    private boolean eksploduje = true;
+    private int fazaEksplozji = 0;
     private Bitmap[] mSkorkaLewoDoPrawo;
     private Bitmap[] mSkorkaPrawoDoLewo;
     private Bitmap[] mSkorkaGoraDoDolu;
@@ -141,7 +141,10 @@ public class PostacChibi extends ObiektGry {
         else {
             bitmap = this.eksplozja(fazaEksplozji);
             fazaEksplozji++;
-            if (fazaEksplozji > 26) eksploduje = false;
+            if (fazaEksplozji > 25) {
+                eksploduje = false;
+                fazaEksplozji = 1;
+            }
         }
         canvas.drawBitmap(bitmap, mX, mY, null);
         // Last rysuj time.

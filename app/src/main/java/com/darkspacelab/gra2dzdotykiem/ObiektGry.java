@@ -48,21 +48,21 @@ public abstract class ObiektGry {
     }
 
     protected Bitmap eksplozja(int fazaEksplozji) {
-        Bitmap skin;
-        if (fazaEksplozji <= 5) {
+        Bitmap skin = null;
+        if (fazaEksplozji <= 4) {
             skin = Bitmap.createBitmap(mBoom, fazaEksplozji *mBoomSzerokosc, 0, mBoomSzerokosc, mBoomWysokosc);
         }
-        else if(fazaEksplozji > 5 && fazaEksplozji <= 10) {
-            skin = Bitmap.createBitmap(mBoom, fazaEksplozji-5 *mBoomSzerokosc, mBoomWysokosc, mSzerokosc, mWysokosc);
+        else if(fazaEksplozji > 4 && fazaEksplozji <= 9) {
+            skin = Bitmap.createBitmap(mBoom, (fazaEksplozji-5) *mBoomSzerokosc, mBoomWysokosc, mBoomSzerokosc, mBoomWysokosc);
         }
-        else if(fazaEksplozji > 10 && fazaEksplozji <= 15) {
-            skin = Bitmap.createBitmap(mBoom, fazaEksplozji-10 *mBoomSzerokosc, 2*mBoomWysokosc, mSzerokosc, mWysokosc);
+        else if(fazaEksplozji > 9 && fazaEksplozji <= 14) {
+            skin = Bitmap.createBitmap(mBoom, (fazaEksplozji-10) *mBoomSzerokosc, 2*mBoomWysokosc, mBoomSzerokosc, mBoomWysokosc);
         }
-        else if(fazaEksplozji > 15 && fazaEksplozji <= 20) {
-            skin = Bitmap.createBitmap(mBoom, fazaEksplozji-15 *mBoomSzerokosc, 3*mBoomWysokosc, mSzerokosc, mWysokosc);
+        else if(fazaEksplozji > 14 && fazaEksplozji <= 19) {
+            skin = Bitmap.createBitmap(mBoom, (fazaEksplozji-15) *mBoomSzerokosc, 3*mBoomWysokosc, mBoomSzerokosc, mBoomWysokosc);
         }
-        else if(fazaEksplozji > 20 && fazaEksplozji <= 25) {
-            skin = Bitmap.createBitmap(mBoom, fazaEksplozji-20 *mBoomSzerokosc, 4*mBoomWysokosc, mSzerokosc, mWysokosc);
+        else if(fazaEksplozji > 19 && fazaEksplozji <= 24) {
+            skin = Bitmap.createBitmap(mBoom, (fazaEksplozji-20) *mBoomSzerokosc, 4*mBoomWysokosc, mBoomSzerokosc, mBoomWysokosc);
         }
         return skin;
     }
