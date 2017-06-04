@@ -19,7 +19,7 @@ public class GameThread extends Thread {
         long startTime = System.nanoTime();
 
         while(running)  {
-            Canvas canvas= null;
+            Canvas canvas = null;
             try {
                 // Get Canvas from Holder and lock it.
                 canvas = this.surfaceHolder.lockCanvas();
@@ -56,8 +56,7 @@ public class GameThread extends Thread {
             System.out.print(".");
         }
     }
-
     public void setRunning(boolean running)  {
-        this.running= running;
+            this.running = running;
+        }
     }
-}

@@ -25,7 +25,9 @@ public abstract class ObiektGry {
     protected int mX;
     protected int mY;
 
-    public ObiektGry(Bitmap obraz,Bitmap boom, int liczbaWierszy, int liczbaKolumn, int x, int y)  {
+    protected int id;
+
+    public ObiektGry(Bitmap obraz,Bitmap boom, int liczbaWierszy, int liczbaKolumn, int x, int y, int id)  {
 
         this.mBoom = boom;
         this.mObraz = obraz;
@@ -34,6 +36,7 @@ public abstract class ObiektGry {
 
         this.mX = x;
         this.mY = y;
+        this.id = id;
 
         this.SZEROKOSC_GRAFIKI = obraz.getWidth();
         this.WYSOKOSC_GRAFIKI = obraz.getHeight();

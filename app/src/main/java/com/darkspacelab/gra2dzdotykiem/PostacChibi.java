@@ -33,8 +33,8 @@ public class PostacChibi extends ObiektGry {
 
     private GameSurface gameSurface;
 
-    public PostacChibi(GameSurface gameSurface, Bitmap image, Bitmap boom, int x, int y, float speed) {
-        super(image,boom, 4, 3, x, y);
+    public PostacChibi(GameSurface gameSurface, Bitmap image, Bitmap boom, int x, int y, float speed, int id) {
+        super(image,boom, 4, 3, x, y, id);
         this.predkosc = speed;
         this.gameSurface = gameSurface;
 
@@ -160,4 +160,5 @@ public class PostacChibi extends ObiektGry {
     public void setEksploduje() {
         this.eksploduje = true;
     }
+
 }
